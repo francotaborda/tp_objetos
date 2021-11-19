@@ -2,56 +2,42 @@ package Service;
 
 import java.util.*;
 
+import DAO.PacienteDAO;
+import DAO.UsuarioDAO;
 import imp.Paciente;
+import imp.Usuario;
 
 /**
  * 
  */
 public class PacienteService {
-
-    /**
-     * Default constructor
-     */
-    public PacienteService() {
+	
+	PacienteDAO pac = new PacienteDAO();
+	UsuarioDAO user = new UsuarioDAO();
+	
+    public void guardar(Paciente paciente) {
+    	pac.guardar(paciente);
+    	Usuario usuario = new Usuario();
+    	usuario.setRol("paciente");
+    	usuario.setPass(paciente.getPass());
+    	usuario.setUsuario(paciente.getNombreUsuario());
+    	user.guardar(usuario);
     }
 
-
-
-    /**
-     * @param paciente
-     */
-    public void agregar(Paciente paciente) {
-        // TODO implement here
+    public void eliminar(long id) {
+    	pac.eliminar(id);
     }
 
-    /**
-     * @param paciente
-     */
-    public void modificar(Paciente paciente) {
-        // TODO implement here
+    public Paciente recuperar(long id){
+        return pac.recuperar(id);
     }
 
-    /**
-     * @param paciente
-     */
-    public void eliminar(Paciente paciente) {
-        // TODO implement here
+    public ArrayList<Paciente> listar() {
+        return pac.listar();
     }
-
-    /**
-     * @param dni 
-     * @return
-     */
-    public Paciente recuperar(int dni) {
-        // TODO implement here
-        return null;
+    
+    public boolean existePaciente(int DNI,String nombreUsuario){
+    	return pac.existePaciente(DNI, nombreUsuario);
     }
-
-    /**
-     * @param Paciente
-     */
-    public void setPacienteDAO(/*void Paciente*/) {
-        // TODO implement here
-    }
-
 }
+   

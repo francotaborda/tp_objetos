@@ -1,13 +1,24 @@
 package imp;
 
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Turno {
+public class Turno implements Serializable{
     private boolean disponible;
-    private Date fecha;
+    private String fecha;
     private int paciente;
     private String odontologo;
+    private long id;
+    
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public boolean getDisponible() {
     	return disponible;
     }
@@ -16,21 +27,14 @@ public class Turno {
         this.disponible=disponible;
     }
 
-    public void getFecha() {
-        // TODO implement here
+    public String getFecha() {
+    	return fecha; 
     }
 
-    /**
-     * 
-     */
-    public void setFecha() {
-        // TODO implement here
+    public void setFecha(String fecha) {
+    	this.fecha=fecha;
     }
 
-    /**
-     * @return 
-     * 
-     */
     public int getPaciente() {
       return paciente; 
        
@@ -38,6 +42,7 @@ public class Turno {
     }
     public void setPaciente() {
     	paciente=this.getPaciente();
+ 
     }
 
     public String getOdontologo() {
@@ -45,7 +50,7 @@ public class Turno {
     }
 
 
-    public void setOdontologo() {
+    public void setOdontologo(String odontologo) {
     	this.odontologo=odontologo;
         
     }

@@ -2,57 +2,28 @@ package Service;
 
 import java.util.*;
 
+import DAO.OdontologoDAO;
 import imp.Odontologo;
 
 /**
  * 
  */
 public class OdontologoService {
+	OdontologoDAO odont = new OdontologoDAO();
+	public void guardar(Odontologo odontologo) {
+		odont.guardar(odontologo);
+	
+	}
 
-    /**
-     * Default constructor
-     */
-    public OdontologoService() {
-    }
+	public void eliminar(long id) {
+		odont.eliminar(id);
+	}
 
+	public Odontologo recuperar(long id){
+		return odont.recuperar(id);
+	}
 
-
-
-    /**
-     * @param odontologo
-     */
-    public void agregar(Odontologo odontologo) {
-        // TODO implement here
-    }
-
-    /**
-     * @param odontologo
-     */
-    public void eliminar(Odontologo odontologo) {
-        // TODO implement here
-    }
-
-    /**
-     * @param odontologo
-     */
-    public void modificar(Odontologo odontologo) {
-        // TODO implement here
-    }
-
-    /**
-     * @param matricula 
-     * @return
-     */
-    public Odontologo recuperar(int matricula) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param Odontologo
-     */
-    public void setOdontologoDAO(/*void Odontologo*/) {
-        // TODO implement here
-    }
-
-}
+	public ArrayList<Odontologo> listar() {
+    return odont.listar();
+		}
+	}

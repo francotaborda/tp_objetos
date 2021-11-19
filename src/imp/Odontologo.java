@@ -1,15 +1,24 @@
 package imp;
 
 
+import java.io.Serializable;
 import java.util.*;
 
 
-public class Odontologo {
+public class Odontologo implements Serializable{
 
     private String apellido;
     private String nombre;
     private String matricula;
+    private long id;
     
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getNombre() {
         return nombre;
     }

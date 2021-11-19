@@ -1,8 +1,9 @@
 package imp;
 
 
+import java.io.Serializable;
 import java.util.*;
-public class Paciente extends Usuario {
+public class Paciente extends Usuario implements Serializable {
 
     private String nombre;
     private String domicilio;
@@ -11,6 +12,15 @@ public class Paciente extends Usuario {
     private String fechaDeAlta;
     public String nombreUsuario;
     public String password;
+    private long id;
+    
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     
     public String getNombre() {
         return nombre;

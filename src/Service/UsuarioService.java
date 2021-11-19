@@ -2,57 +2,37 @@ package Service;
 
 import java.util.*;
 
+
+import DAO.UsuarioDAO;
 import imp.Usuario;
 
 /**
  * 
  */
 public class UsuarioService {
-
-    /**
-     * Default constructor
-     */
-    public UsuarioService() {
+	UsuarioDAO usu = new UsuarioDAO();
+    public void guardar(Usuario usuario) {
+    	usu.guardar(usuario);
+    	
     }
 
-
-
-    /**
-     * @param Usuario
-     */
-    public void agregar(Usuario user) {
-        // TODO implement here
+    public void eliminar(long id) {
+        usu.eliminar(id);
     }
 
-    /**
-     * @param Usuario
-     */
-    public void eliminar(Usuario user) {
-        // TODO implement here
+    public Usuario recuperar(long id){
+        return usu.recuperar(id);
     }
 
-    /**
-     * @param Usuario
-     */
-    public void modificar(Usuario user) {
-        // TODO implement here
+    public ArrayList<Usuario> listar() {
+        return usu.listar();
     }
-
-    /**
-     * @param nombre 
-     * @param pass 
-     * @return
-     */
-    public Usuario recuperar(/*void nombre, void pass*/) {
-        // TODO implement here
-        return null;
+    // para validar la exitencia 
+    public Usuario validarUsuario(String usuario,String pass){
+    	return usu.validarUsuario(usuario, pass);
+ 
     }
-
-    /**
-     * @param Usuario
-     */
-    public void setUsuarioDAO(/*void Usuario*/) {
-        // TODO implement here
+    public long recuperarId(String usuario) {
+    	return usu.recuperarId(usuario);
     }
-
 }

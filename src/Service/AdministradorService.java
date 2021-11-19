@@ -2,49 +2,27 @@ package Service;
 
 
 import java.util.*;
-
-import DAO.AdministardorDAO;
-import imp.Administrador;
-
+import DAO.AdministradorDAO;
+import imp.Adminstrador;
 /**
  * 
  */
 public class AdministradorService {
-	public AdministradorService(){
-		AdministardorDAO administradorDAO = new AdministardorDAO();
-	}
-    public void agregar(Administrador administrador) {
-        // TODO implement here
+		AdministradorDAO admin = new AdministradorDAO();
+    public void guardar(Adminstrador administrador) {
+    	admin.guardar(administrador);
+    	
     }
 
-    /**
-     * @param administrador
-     */
-    public void modificar(Administrador administrador) {
-        // TODO implement here
+    public void eliminar(long id) {
+        admin.eliminar(id);
     }
 
-    /**
-     * @param administrador
-     */
-    public void eliminar(Administrador administrador) {
-        // TODO implement here
+    public Adminstrador recuperar(long id){
+        return admin.recuperar(id);
     }
 
-    /**
-     * @param dni 
-     * @return
-     */
-    public Administrador recuperar(int dni) {
-        // TODO implement here
-        return null;
+    public ArrayList<Adminstrador> listar() {
+        return admin.listar();
     }
-
-    /**
-     * @param Administrador
-     */
-    public void setAdministardorDAO(/*void Administrador*/) {
-        // TODO implement here
-    }
-
 }
